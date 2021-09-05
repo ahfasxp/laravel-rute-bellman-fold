@@ -12,6 +12,10 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/jquery-3.5.1.js') }}"></script>
+    <script src="{{ asset('js/jquery.dataTables.min.js') }}" defer></script>
+    <script src="{{ asset('js/sweetalert2.min.js') }}"></script>
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -19,197 +23,119 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
-        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
-
-    <style>
-        body {
-            background: #FFFFFF;
-            font-family: Poppins, sans-serif;
-        }
-
-        .navbar-1-1.navbar-light .navbar-nav .nav-link {
-            color: #092a33;
-            transition: 0.3s;
-        }
-
-        .navbar-1-1.navbar-light .navbar-nav .nav-link.active {
-            font-weight: 500;
-        }
-
-        .navbar-1-1 .btn-get-started {
-            border-radius: 20px;
-            padding: 12px 30px;
-            font-weight: 500;
-        }
-
-        .navbar-1-1 .btn-get-started-blue {
-            background-color: #0ec8f8;
-            transition: 0.3s;
-        }
-
-        .navbar-1-1 .btn-get-started-blue:hover {
-            background-color: #3ad8ff;
-            transition: 0.3s;
-        }
-
-        .content-3-7 .btn:focus,
-        .content-3-7 .btn:active {
-            outline: none !important;
-        }
-
-        .content-3-7 .card-item {
-            transition: 0.4s;
-            top: 0px;
-            left: 0px;
-            padding: 1rem 0;
-        }
-
-        .content-3-7 .card-item:hover {
-            top: -3px;
-            left: -3px;
-            transition: 0.4s;
-        }
-
-        .content-3-7 .card-item-outline {
-            border: 1px solid #e5ebf9;
-            padding: 2rem 2.75rem;
-            border-radius: 1rem;
-            text-align: center;
-        }
-
-        .btn-outline {
-            border: 1px solid #2ec49c;
-            color: #2ec49c;
-            font-weight: 500;
-            letter-spacing: 0.025em;
-            border-radius: 0.5rem;
-        }
-
-        .btn-outline:hover {
-            background-color: #2ec49c;
-            color: #ffffff;
-        }
-
-        .btn-fill {
-            background-image: linear-gradient(rgba(91, 203, 173, 1),
-                    rgba(39, 194, 153, 1));
-            font-weight: 500;
-            letter-spacing: 0.025em;
-            border-radius: 0.5rem;
-        }
-
-        .btn-fill:hover {
-            background-image: linear-gradient(#29b18d, #29b18d);
-        }
-
-        @media (min-width: 576px) {
-            .content-3-7 .card-item {
-                padding: 1rem;
-            }
-        }
-
-        @media (min-width: 768px) {
-            .content-3-7 {
-                padding-left: 3.5rem;
-                padding-right: 3.5rem;
-            }
-        }
-
-        @media (min-width: 992px) {
-            .content-3-7 .card-item {
-                width: 33.333333%;
-            }
-        }
-
-        @media (min-width: 1200px) {
-            .content-3-7 {
-                padding-left: 9rem;
-                padding-right: 9rem;
-            }
-        }
-
-    </style>
+    <link href="{{ asset('css/fontawesome.all.css') }}" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 </head>
 
 <body>
     <div id="app">
-        <nav class="navbar-1-1 navbar navbar-expand-lg navbar-light p-4 px-md-4 mb-3 bg-body"
-            style="font-family: Poppins, sans-serif">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M3.5 15.75C3.5 8.98451 8.98451 3.5 15.75 3.5H29.75C30.7165 3.5 31.5 4.2835 31.5 5.25C31.5 6.2165 30.7165 7 29.75 7H15.75C10.9175 7 7 10.9175 7 15.75V29.75C7 30.7165 6.2165 31.5 5.25 31.5C4.2835 31.5 3.5 30.7165 3.5 29.75V15.75Z"
-                            fill="#0EC8F8" />
-                        <path
-                            d="M10.5 17.5C10.5 13.634 13.634 10.5 17.5 10.5H31.5C35.366 10.5 38.5 13.634 38.5 17.5V31.5C38.5 35.366 35.366 38.5 31.5 38.5H17.5C13.634 38.5 10.5 35.366 10.5 31.5V17.5Z"
-                            fill="#0EC8F8" />
-                    </svg>
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link px-md-4" href="{{ Url('/admin') }}">Dashboard</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link px-md-4" href="{{ Url('/admin/users') }}">Manage Admin</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link px-md-4" href="#">Manage Profil Desa</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link px-md-4" href="#">Manage Lokasi Desa</a>
-                        </li>
-                    </ul>
-
-                    @if (Auth::user())
-                        <!-- Right Side Of Navbar -->
-                        <ul class="navbar-nav ml-auto">
-                            <!-- Authentication Links -->
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+        <div class="page-wrapper chiller-theme toggled">
+            <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+                <i class="fas fa-bars"></i>
+            </a>
+            <nav id="sidebar" class="sidebar-wrapper">
+                <div class="sidebar-content">
+                    <div class="sidebar-brand">
+                        <a href="{{ url('/') }}">{{ config('app.name', 'Laravel') }}</a>
+                        <div id="close-sidebar">
+                            <i class="fas fa-times"></i>
+                        </div>
+                    </div>
+                    <div class="sidebar-header">
+                        <div class="user-info">
+                            <span class="user-name">
+                                <strong>{{ Auth::user()->name }}</strong>
+                            </span>
+                            <span class="user-status">
+                                <i class="fa fa-circle"></i>
+                                <span>Online</span>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- sidebar-header  -->
+                    <div class="sidebar-menu">
+                        <ul>
+                            <li class="header-menu">
+                                <span>General</span>
+                            </li>
+                            <li>
+                                <a href="{{ Url('/admin') }}">
+                                    <i class="fa fa-tachometer-alt"></i>
+                                    <span>Dashboard</span>
                                 </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                        class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
+                            </li>
+                            <li>
+                                <a href="{{ Url('/admin/users') }}">
+                                    <i class="fa fa-users"></i>
+                                    <span>Manage Admin</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-globe"></i>
+                                    <span>Examples</span>
+                                </a>
                             </li>
                         </ul>
-                    @endif
+                    </div>
+                    <!-- sidebar-menu  -->
                 </div>
-            </div>
-        </nav>
+                <!-- sidebar-content  -->
+                <div class="sidebar-footer">
+                    <a href="{{ route('logout') }}"
+                        onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                        <i class="fa fa-power-off"></i>
+                        <span>{{ __('Logout') }}</span>
+                    </a>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                </div>
+            </nav>
+            <!-- sidebar-wrapper  -->
+            <main class="page-content">
+                @yield('content')
+            </main>
+            <!-- page-content" -->
+        </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
+    <!-- start-script -->
+    <script>
+        jQuery(function($) {
+
+            $(".sidebar-dropdown > a").click(function() {
+                $(".sidebar-submenu").slideUp(200);
+                if (
+                    $(this)
+                    .parent()
+                    .hasClass("active")
+                ) {
+                    $(".sidebar-dropdown").removeClass("active");
+                    $(this)
+                        .parent()
+                        .removeClass("active");
+                } else {
+                    $(".sidebar-dropdown").removeClass("active");
+                    $(this)
+                        .next(".sidebar-submenu")
+                        .slideDown(200);
+                    $(this)
+                        .parent()
+                        .addClass("active");
+                }
+            });
+
+            $("#close-sidebar").click(function() {
+                $(".page-wrapper").removeClass("toggled");
+            });
+            $("#show-sidebar").click(function() {
+                $(".page-wrapper").addClass("toggled");
+            });
+        });
     </script>
-    <script src="{{ asset('js/jquery-3.5.1.js') }}"></script>
-    <script src="{{ asset('js/jquery.dataTables.min.js') }}" defer></script>
-    <script src="{{ asset('js/dataTables.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('js/sweetalert2.min.js') }}"></script>
 
     @if (Session::has('success'))
         <script type="text/javascript">

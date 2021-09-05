@@ -1,20 +1,21 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="container">
+    <div class="container-fluid">
         <div class="row mb-3">
             <div class="col-sm-12 col-md-10">
                 <h1>Manage Admin</h1>
             </div>
             <div class="col-sm-12 col-md-2">
                 <a href="{{ route('users.create') }}">
-                    <button class="btn btn-outline d-flex justify-content-center align-items-center w-100">
+                    <button class="btn btn-primary">
                         Tambah Data
                     </button>
                 </a>
             </div>
         </div>
-        <table id="users" class="table table-bordered responsive" style="width:100%">
+        <hr>
+        <table id="users" class="table table-bordered" style="width:100%">
             <thead>
                 <tr>
                     <th>No</th>

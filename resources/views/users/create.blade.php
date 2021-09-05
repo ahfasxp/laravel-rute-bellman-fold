@@ -1,12 +1,13 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-8 mx-auto">
                 <form action="{{ route('users.store') }}" method="POST">
                     @csrf
                     <h2>Tambah Data</h2>
+                    <hr>
                     <div class="form-group">
                         <label for="">Nama</label>
                         <input type="text" class="form-control" name="name" id="name" value="{{ old('name') }}"

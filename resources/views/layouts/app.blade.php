@@ -12,6 +12,9 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
+    </script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -19,41 +22,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
-        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
-
-    <style>
-        body {
-            background: #FFFFFF;
-            font-family: Poppins, sans-serif;
-        }
-
-        .navbar-1-1.navbar-light .navbar-nav .nav-link {
-            color: #092a33;
-            transition: 0.3s;
-        }
-
-        .navbar-1-1.navbar-light .navbar-nav .nav-link.active {
-            font-weight: 500;
-        }
-
-        .navbar-1-1 .btn-get-started {
-            border-radius: 20px;
-            padding: 12px 30px;
-            font-weight: 500;
-        }
-
-        .navbar-1-1 .btn-get-started-blue {
-            background-color: #0ec8f8;
-            transition: 0.3s;
-        }
-
-        .navbar-1-1 .btn-get-started-blue:hover {
-            background-color: #3ad8ff;
-            transition: 0.3s;
-        }
-    </style>
+    <link href="{{ asset('css/fontawesome.all.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -124,10 +94,6 @@
             @yield('content')
         </main>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
-    </script>
     @yield('script')
 </body>
 
