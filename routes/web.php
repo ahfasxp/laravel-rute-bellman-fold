@@ -13,13 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [App\Http\Controllers\AppController::class, 'index']);
 
 Auth::routes(['register'=>false]);
 
 Route::prefix('admin')->middleware(['middleware' => 'auth'])->group(function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::resource('/users', App\Http\Controllers\UserController::class);
+    Route::resource('/desa', App\Http\Controllers\DesaController::class);
 });

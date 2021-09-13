@@ -4,10 +4,10 @@
     <div class="container-fluid">
         <div class="row mb-3">
             <div class="col-sm-12 col-md-10">
-                <h1>Manage Admin</h1>
+                <h1>Manage Desa</h1>
             </div>
             <div class="col-sm-12 col-md-2">
-                <a href="{{ route('users.create') }}">
+                <a href="{{ route('desa.create') }}">
                     <button class="btn btn-primary">
                         Tambah Data
                     </button>
@@ -15,13 +15,13 @@
             </div>
         </div>
         <hr>
-        <table id="users" class="table table-bordered" style="width:100%">
+        <table id="desa" class="table table-bordered" style="width:100%">
             <thead>
                 <tr>
                     <th>No</th>
                     <th>Nama</th>
-                    <th>Email</th>
-                    <th>Dibuat</th>
+                    <th>Latitude</th>
+                    <th>Longitude</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -29,24 +29,24 @@
                 @php
                     $no = 1;
                 @endphp
-                @forelse($users as $item)
+                @forelse($desa as $item)
                     <tr>
                         <td>{{ $no++ }}</td>
-                        <td>{{ $item->name }}</td>
-                        <td>{{ $item->email }}</td>
-                        <td>{{ date('d M Y', strtotime($item->created_at)) }}</td>
+                        <td>{{ $item->nama }}</td>
+                        <td>{{ $item->latitude }}</td>
+                        <td>{{ $item->longitude }}</td>
                         <td>
-                            <a class="btn btn-primary btn-sm" href="{{ route('users.show', [$item->id]) }}">
+                            <a class="btn btn-primary btn-sm" href="{{ route('desa.show', [$item->id]) }}">
                                 <i class="fas fa-folder">
                                 </i>
                                 View
                             </a>
-                            <a class="btn btn-success btn-sm" href="{{ route('users.edit', [$item]) }}">
+                            <a class="btn btn-success btn-sm" href="{{ route('desa.edit', [$item]) }}">
                                 <i class="fas fa-pencil-alt">
                                 </i>
                                 Edit
                             </a>
-                            <form class="d-inline swalDeleteConfirm" action="{{ route('users.destroy', [$item]) }}"
+                            <form class="d-inline swalDeleteConfirm" action="{{ route('desa.destroy', [$item]) }}"
                                 method="POST">
                                 @csrf
                                 @method('DELETE')
@@ -58,7 +58,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="6" class="text-center">Tidak Ada Data Users</td>
+                        <td colspan="6" class="text-center">Tidak Ada Data Desa</td>
                     </tr>
                 @endforelse
             </tbody>
@@ -69,7 +69,7 @@
     <!-- DataTable -->
     <script>
         $(function() {
-            $('#users').DataTable();
+            $('#desa').DataTable();
         });
     </script>
 

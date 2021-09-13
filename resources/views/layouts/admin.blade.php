@@ -72,9 +72,9 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="{{ Url('/admin/desa') }}">
                                     <i class="fa fa-globe"></i>
-                                    <span>Examples</span>
+                                    <span>Manage Desa</span>
                                 </a>
                             </li>
                         </ul>

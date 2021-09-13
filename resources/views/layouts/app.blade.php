@@ -24,6 +24,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/fontawesome.all.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+    @yield('style')
 </head>
 
 <body>
@@ -55,7 +56,7 @@
                             </li>
                         @endif
                         <li class="nav-item">
-                            <a class="nav-link px-md-4" href="#">Lokasi Desa</a>
+                            <a class="nav-link px-md-4" href="#">Peta Desa</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link px-md-4" href="#">Rute Desa</a>
@@ -89,10 +90,7 @@
                 </div>
             </div>
         </nav>
-
-        <main class="py-4">
-            @yield('content')
-        </main>
+        @yield('content')
     </div>
     @yield('script')
 </body>
