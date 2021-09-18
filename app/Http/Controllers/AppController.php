@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Desa;
+use App\Models\Coordinate;
 use Illuminate\Http\Request;
 
 class AppController extends Controller
 {
     public function index()
     {
-        $desa = Desa::all();
+        $desa = Coordinate::all();
         return view('index', compact('desa'));
     }
 }

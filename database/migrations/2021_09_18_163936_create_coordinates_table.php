@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDesaTable extends Migration
+class CreateCoordinatesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateDesaTable extends Migration
      */
     public function up()
     {
-        Schema::create('desa', function (Blueprint $table) {
+        Schema::create('coordinates', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
+            $table->string('name');
             $table->string('latitude');
             $table->string('longitude');
+            $table->string('vertex')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreateDesaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('desa');
+        Schema::dropIfExists('coordinates');
     }
 }

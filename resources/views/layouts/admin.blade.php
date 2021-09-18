@@ -72,10 +72,26 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ Url('/admin/desa') }}">
+                                <a href="#">
                                     <i class="fa fa-globe"></i>
                                     <span>Manage Desa</span>
                                 </a>
+                            </li>
+                            <li class="sidebar-dropdown">
+                                <a href="#">
+                                    <i class="fa fa-globe"></i>
+                                    <span>Setting Rute</span>
+                                </a>
+                                <div class="sidebar-submenu">
+                                    <ul>
+                                        <li>
+                                            <a href="{{ Url('/admin/coordinates') }}">Nilai Kordinat</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ Url('/admin/graphs') }}">Nilai Graph</a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </li>
                         </ul>
                     </div>

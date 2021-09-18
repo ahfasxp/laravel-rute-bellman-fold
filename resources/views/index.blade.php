@@ -40,9 +40,9 @@
     </script>
 
     @foreach ($desa as $item)
-        {{ $item->latitude }}
         <script>
             var marker = L.marker([{!! $item->latitude !!}, {!! $item->longitude !!}]).addTo(mymap);
+            marker.bindTooltip('{!! $item->name !!}', {permanent: true,});
         </script>
     @endforeach
 

@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Desa;
+use App\Models\Graph;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class DesaFactory extends Factory
+class GraphFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Desa::class;
+    protected $model = Graph::class;
 
     /**
      * Define the model's default state.

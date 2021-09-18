@@ -4,10 +4,10 @@
     <div class="container-fluid">
         <div class="row mb-3">
             <div class="col-sm-12 col-md-10">
-                <h1>Manage Desa</h1>
+                <h1>Nilai Kordinat</h1>
             </div>
             <div class="col-sm-12 col-md-2">
-                <a href="{{ route('desa.create') }}">
+                <a href="{{ route('coordinates.create') }}">
                     <button class="btn btn-primary">
                         Tambah Data
                     </button>
@@ -15,13 +15,14 @@
             </div>
         </div>
         <hr>
-        <table id="desa" class="table table-bordered" style="width:100%">
+        <table id="coordinate" class="table table-bordered" style="width:100%">
             <thead>
                 <tr>
                     <th>No</th>
                     <th>Nama</th>
                     <th>Latitude</th>
                     <th>Longitude</th>
+                    <th>Vertex</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -29,24 +30,25 @@
                 @php
                     $no = 1;
                 @endphp
-                @forelse($desa as $item)
+                @forelse($coordinates as $item)
                     <tr>
                         <td>{{ $no++ }}</td>
-                        <td>{{ $item->nama }}</td>
+                        <td>{{ $item->name }}</td>
                         <td>{{ $item->latitude }}</td>
                         <td>{{ $item->longitude }}</td>
+                        <td>{{ $item->vertex }}</td>
                         <td>
-                            <a class="btn btn-primary btn-sm" href="{{ route('desa.show', [$item->id]) }}">
+                            <a class="btn btn-primary btn-sm" href="{{ route('coordinates.show', [$item->id]) }}">
                                 <i class="fas fa-folder">
                                 </i>
                                 View
                             </a>
-                            <a class="btn btn-success btn-sm" href="{{ route('desa.edit', [$item]) }}">
+                            <a class="btn btn-success btn-sm" href="{{ route('coordinates.edit', [$item]) }}">
                                 <i class="fas fa-pencil-alt">
                                 </i>
                                 Edit
                             </a>
-                            <form class="d-inline swalDeleteConfirm" action="{{ route('desa.destroy', [$item]) }}"
+                            <form class="d-inline swalDeleteConfirm" action="{{ route('coordinates.destroy', [$item]) }}"
                                 method="POST">
                                 @csrf
                                 @method('DELETE')
@@ -69,7 +71,7 @@
     <!-- DataTable -->
     <script>
         $(function() {
-            $('#desa').DataTable();
+            $('#coordinate').DataTable();
         });
     </script>
 
