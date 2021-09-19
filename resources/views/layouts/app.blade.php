@@ -93,6 +93,13 @@
                 </div>
             </div>
         </nav>
+
+        <div class="jumbotron jumbotron-fluid bg-primary text-white">
+            <div class="container">
+                <h1>Selamat Datang!</h1>
+                <p>Di Sistem Pencarian Rute Terpendek Menggunakan Algoritma Bellman-Fold</p>
+            </div>
+        </div>
         @yield('content')
     </div>
 

@@ -126,8 +126,8 @@
 
             .content-3-5 .btn-fill {
                 font: 500 1.25rem/1.75rem Poppins, sans-serif;
-                background-image: linear-gradient(rgba(91, 203, 173, 1),
-                        rgba(39, 194, 153, 1));
+                background-image: linear-gradient(rgb(15, 151, 230),
+                        rgba(15, 151, 230));
                 padding: 0.75rem 1rem;
                 margin-top: 2.25rem;
                 border-radius: 0.75rem;
@@ -135,7 +135,7 @@
             }
 
             .content-3-5 .btn-fill:hover {
-                background-image: linear-gradient(#2ec49c, #2ec49c);
+                background-image: linear-gradient(#3490dc, #3490dc);
                 transition: 0.5s;
             }
 

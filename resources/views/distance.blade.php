@@ -12,6 +12,24 @@
 
 @section('content')
     <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <form action="" method="get">
+                    <div class="form-group">
+                        <label for="">Pilih Lokasi Awal (Source)</label>
+                        <select class="form-control" name="source" id="source">
+                            <option selected="true" disabled="disabled">Pilih Lokasi Awal</option>
+                            <option value="0">Kantor Kecamatan Pabedilan</option>
+                        </select>
+                    </div>
+                    <button type="button" name="" id="" class="btn btn-primary btn-block">Uji Bellman Fold</button>
+                </form>
+            </div>
+        </div>
+        <br>
+        <br>
+        <hr>
+        <h2>Hasil Pengujian Pencarian Rute Terpendek Bellman Fold</h2>
         <table class="table table-bordered">
             <thead>
                 <tr>

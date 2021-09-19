@@ -15,20 +15,10 @@
 @endsection
 
 @section('content')
-    <div class="jumbotron">
-        <h1 class="display-3">Jumbo heading</h1>
-        <p class="lead">Jumbo helper text</p>
-        <hr class="my-2">
-        <p>More info</p>
-        <p class="lead">
-            <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
-        </p>
-    </div>
-
     <h2 class="text-center">Peta Sebaran Kantor Kepala Desa di Kecamatan Pabedilan</h2>
 
     <div id="sidebar">
-        <h1>leaflet-sidebar</h1>
+        <h1>Profil</h1>
 
         <p>A responsive sidebar plugin for for <a href="http://leafletjs.com/">Leaflet</a>, a JS library for interactive
             maps.</p>
@@ -107,7 +97,7 @@
         <script>
             var marker = L.marker([{!! $item->latitude !!}, {!! $item->longitude !!}]).addTo(mymap);
             marker.bindTooltip('{!! $item->name !!}', {
-                permanent: true,
+                permanent: false,
             }).on('click', markerOnClick);
 
             function markerOnClick(e) {
