@@ -56,10 +56,10 @@
                             </li>
                         @endif
                         <li class="nav-item">
-                            <a class="nav-link px-md-4" href="#">Peta Desa</a>
+                            <a class="nav-link px-md-4" href="{{ url('/') }}">Peta Desa</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link px-md-4" href="#">Rute Desa</a>
+                            <a class="nav-link px-md-4" href="{{ url('/distances') }}">Rute Desa</a>
                         </li>
                     </ul>
 

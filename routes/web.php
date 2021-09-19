@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [App\Http\Controllers\AppController::class, 'index']);
+Route::get('/distances', [App\Http\Controllers\AppController::class, 'distances']);
 
 Auth::routes(['register'=>false]);
 

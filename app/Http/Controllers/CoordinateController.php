@@ -40,7 +40,7 @@ class CoordinateController extends Controller
             'name' => 'required|string|min:3',
             'lat' => 'required|string|min:3',
             'long' => 'required|string|min:3',
-            'vertex' => 'required|string',
+            'vertex' => 'required|numeric',
         ],);
 
         $coordinate = new Coordinate;
@@ -90,7 +90,7 @@ class CoordinateController extends Controller
             'name' => 'required|string|min:3',
             'lat' => 'required|string|min:3',
             'long' => 'required|string|min:3',
-            'vertex' => 'required|string',
+            'vertex' => 'required|numeric',
         ],);
 
         $coordinate = Coordinate::findOrFail($coordinate->id);

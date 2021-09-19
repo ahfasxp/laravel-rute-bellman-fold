@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Coordinate;
 use App\Models\Graph;
 use Illuminate\Http\Request;
 
@@ -14,8 +15,8 @@ class GraphController extends Controller
      */
     public function index()
     {
-        $graph = Graph::all();
-        return view('graph.index', compact('graph'));
+        $graphs = Graph::all();
+        return view('graphs.index', compact('graphs'));
     }
 
     /**
@@ -25,7 +26,8 @@ class GraphController extends Controller
      */
     public function create()
     {
-        return view('graph.create');
+        $coordinates = Coordinate::orderBy('vertex', 'ASC')->get();
+        return view('graphs.create', compact('coordinates'));
     }
 
     /**
@@ -37,21 +39,19 @@ class GraphController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama' => 'required|string|min:3',
-            'lat' => 'required|string|min:3',
-            'long' => 'required|string|min:3',
-            'vertex' => 'required|string',
+            'source' => 'required|numeric',
+            'destination' => 'required|numeric',
+            'weight' => 'required|min:1',
         ],);
 
         $graph = new Graph;
 
-        $graph->nama = $request->get('nama');
-        $graph->latitude = $request->get('lat');
-        $graph->longitude = $request->get('long');
-        $graph->vertex = $request->get('vertex');
+        $graph->source = $request->get('source');
+        $graph->destination = $request->get('destination');
+        $graph->weight = $request->get('weight');
         $graph->save();
 
-        return redirect()->route('graph.index')->with('success', 'Graph Berhasil di Tambahkan!');
+        return redirect()->route('graphs.index')->with('success', 'Graph Berhasil di Tambahkan!');
     }
 
     /**
@@ -74,7 +74,8 @@ class GraphController extends Controller
     public function edit(Graph $graph)
     {
         $graph = Graph::findOrFail($graph->id);
-        return view('graph.edit', compact('graph'));
+        $coordinates = Coordinate::orderBy('vertex', 'ASC')->get();
+        return view('graphs.edit', compact('graph', 'coordinates'));
     }
 
     /**
@@ -87,25 +88,23 @@ class GraphController extends Controller
     public function update(Request $request, Graph $graph)
     {
         $request->validate([
-            'nama' => 'required|string|min:3',
-            'lat' => 'required|string|min:3',
-            'long' => 'required|string|min:3',
-            'vertex' => 'required|string',
+            'source' => 'required|numeric',
+            'destination' => 'required|numeric',
+            'weight' => 'required|min:1',
         ],);
 
         $graph = Graph::findOrFail($graph->id);
 
-        $graph->nama = $request->get('nama');
-        $graph->latitude = $request->get('lat');
-        $graph->longitude = $request->get('long');
-        $graph->vertex = $request->get('vertex');
+        $graph->source = $request->get('source');
+        $graph->destination = $request->get('destination');
+        $graph->weight = $request->get('weight');
         $graph->save();
 
-        return redirect()->route('graph.index')->with('success', 'Graph Berhasil di Edit!');
+        return redirect()->route('graphs.index')->with('success', 'Graph Berhasil di Edit!');
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified resource source storage.
      *
      * @param  \App\Models\Graph  $graph
      * @return \Illuminate\Http\Response
@@ -114,6 +113,6 @@ class GraphController extends Controller
     {
         $graph = Graph::findOrFail($graph->id);
         $graph->delete();
-        return redirect()->route('graph.index')->with('success','Graph Berhasil di Hapus!');
+        return redirect()->route('graphs.index')->with('success','Graph Berhasil di Hapus!');
     }
 }

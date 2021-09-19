@@ -34,7 +34,7 @@
                     </div>
                     <div class="form-group">
                         <label for="">Vertex</label>
-                        <input type="text" class="form-control" name="vertex" id="vertex" value="{{ old('vertex') }}"
+                        <input type="number" class="form-control" name="vertex" id="vertex" value="{{ old('vertex') }}"
                             placeholder="Masukan Vertex" required>
                         @error('vertex')
                             <small class="form-text text-danger">{{ $message }}</small>
