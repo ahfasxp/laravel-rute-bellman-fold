@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\DB;
 
 use App\Models\Coordinate;
@@ -36,10 +37,16 @@ class AppController extends Controller
         $results = $this->BellmanFord($graphs, $V, $E, $S);
 
         // This code is contributed by AnkitRai01
-        $source = Coordinate::where('vertex', $S)->first();
-        $vertex = Coordinate::whereIn('vertex', [$graphs])->get();
 
-        return view('distance', compact('graphs','results', 'V', 'S', 'source', 'vertex'));
+        $vs = Graph::select('source')->distinct()->pluck('source')->toArray();
+        $vd = Graph::select('destination')->distinct()->pluck('destination')->toArray();
+        $vm = array_merge($vs, $vd);
+        $vu = array_unique($vm);
+
+        $source = Coordinate::select('id', 'name', 'latitude', 'longitude', 'vertex')->where('vertex', $S)->first();
+        $vertex = Coordinate::select('id', 'name', 'latitude', 'longitude', 'vertex')->whereIn('vertex', $vu)->orderBy('vertex', 'ASC')->get();
+
+        return view('distance', compact('graphs', 'results', 'V', 'S', 'source', 'vertex'));
     }
 
     // A PHP program for Bellman-Ford's single
