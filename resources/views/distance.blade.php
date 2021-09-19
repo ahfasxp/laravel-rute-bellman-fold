@@ -22,14 +22,14 @@
                             <option value="0">Kantor Kecamatan Pabedilan</option>
                         </select>
                     </div>
-                    <button type="button" name="" id="" class="btn btn-primary btn-block">Uji Bellman Fold</button>
+                    <button type="button" name="" id="" class="btn btn-primary btn-block">Uji Algoritma Bellman-Fold</button>
                 </form>
             </div>
         </div>
         <br>
         <br>
         <hr>
-        <h2>Hasil Pengujian Pencarian Rute Terpendek Bellman Fold</h2>
+        <h2>Hasil Pengujian Pencarian Rute Terpendek Algoritma Bellman-Fold</h2>
         <table class="table table-bordered">
             <thead>
                 <tr>

@@ -11,6 +11,12 @@
             position: initial;
         }
 
+        .table th,
+        .table td {
+            padding: 0.50rem;
+            vertical-align: middle;
+        }
+
     </style>
 @endsection
 
@@ -18,47 +24,155 @@
     <h2 class="text-center">Peta Sebaran Kantor Kepala Desa di Kecamatan Pabedilan</h2>
 
     <div id="sidebar">
-        <h1>Profil</h1>
-
-        <p>A responsive sidebar plugin for for <a href="http://leafletjs.com/">Leaflet</a>, a JS library for interactive
-            maps.</p>
-
-        <p><b>Click on the marker to show the sidebar again when you've closed it.</b></p>
-
-        <p>Other examples:</p>
-
-        <ul>
-            <li><a href="listing-markers.html">listing-markers example</a></li>
-            <li><a href="two-sidebars.html">two-sidebars example</a></li>
-        </ul>
-
-        <p class="lorem">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-            invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-            et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
-            dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
-            aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
-            gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-
-        <p class="lorem">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-            invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-            et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
-            dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
-            aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
-            gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-
-        <p class="lorem">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-            invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-            et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
-            dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
-            aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
-            gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-
-        <p class="lorem">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-            invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-            et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
-            dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
-            aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
-            gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+        <div class="bg-success p-2 text-white">
+            <h1>Profil</h1>
+        </div>
+        <div class="p-3">
+            <table class="table table-borderless table-responsive">
+                <tbody>
+                    <tr>
+                        <th>Nama</th>
+                        <th>:</th>
+                        <th>Pabedilan Wetan</th>
+                    </tr>
+                    <tr>
+                        <th>Tahun Pembentukan</th>
+                        <th>:</th>
+                        <th>Pabedilan Wetan</th>
+                    </tr>
+                    <tr>
+                        <th>Dasar Hukum Pembentukan</th>
+                        <th>:</th>
+                        <th>Pabedilan Wetan</th>
+                    </tr>
+                    <tr>
+                        <th>Nomor Kode Wilayah</th>
+                        <th>:</th>
+                        <th>Pabedilan Wetan</th>
+                    </tr>
+                    <tr>
+                        <th>Nomor Kode Pos</th>
+                        <th>:</th>
+                        <th>Pabedilan Wetan</th>
+                    </tr>
+                    <tr>
+                        <th>Kecamatan</th>
+                        <th>:</th>
+                        <th>Pabedilan Wetan</th>
+                    </tr>
+                    <tr>
+                        <th>Kabupaten / Kota</th>
+                        <th>:</th>
+                        <th>Pabedilan Wetan</th>
+                    </tr>
+                    <tr>
+                        <th>Provinsi</th>
+                        <th>:</th>
+                        <th>Pabedilan Wetan</th>
+                    </tr>
+                </tbody>
+            </table>
+            <h3>Data Umum</h3>
+            <table class="table table-borderless table-responsive">
+                <tbody>
+                    <tr>
+                        <th>Tipologi</th>
+                        <th>:</th>
+                        <th>Pabedilan Wetan</th>
+                    </tr>
+                    <tr>
+                        <th>Tingkat Perkembangan</th>
+                        <th>:</th>
+                        <th>Pabedilan Wetan</th>
+                    </tr>
+                    <tr>
+                        <th>Luas Wilayah</th>
+                        <th>:</th>
+                        <th>Pabedilan Wetan</th>
+                    </tr>
+                    <tr>
+                        <th>Jumlah Penduduk</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <td>a. Laki - Laki</td>
+                        <td>:</td>
+                        <td>Pabedilan Wetan</td>
+                    </tr>
+                    <tr>
+                        <td>b. Perempuan</td>
+                        <td>:</td>
+                        <td>Pabedilan Wetan</td>
+                    </tr>
+                    <tr>
+                        <th>Mayoritas Pekerjaan</th>
+                        <th>:</th>
+                        <th>Pabedilan Wetan</th>
+                    </tr>
+                    <tr>
+                        <th>Tingkat Pendidikan Masyarakat</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <th>a. Lulusan Pendidikan Umum</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <td>1. Taman Kanak - kanak</td>
+                        <td>:</td>
+                        <td>Pabedilan Wetan</td>
+                    </tr>
+                    <tr>
+                        <td>2. Sekolah Dasar</td>
+                        <td>:</td>
+                        <td>Pabedilan Wetan</td>
+                    </tr>
+                    <tr>
+                        <td>3. SMP</td>
+                        <td>:</td>
+                        <td>Pabedilan Wetan</td>
+                    </tr>
+                    <tr>
+                        <td>4. SMA / SMU</td>
+                        <td>:</td>
+                        <td>Pabedilan Wetan</td>
+                    </tr>
+                    <tr>
+                        <td>5. Akademi / D1 - D3</td>
+                        <td>:</td>
+                        <td>Pabedilan Wetan</td>
+                    </tr>
+                    <tr>
+                        <td>6. Sarjana</td>
+                        <td>:</td>
+                        <td>Pabedilan Wetan</td>
+                    </tr>
+                    <tr>
+                        <td>7. Pascasarjana</td>
+                        <td>:</td>
+                        <td>Pabedilan Wetan</td>
+                    </tr>
+                    <tr>
+                        <th>a. Lulusan Pendidikan Khusus</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <td>1. Pondok Pesantren</td>
+                        <td>:</td>
+                        <td>Pabedilan Wetan</td>
+                    </tr>
+                    <tr>
+                        <td>2. Pendidikan Keagamaan</td>
+                        <td>:</td>
+                        <td>Pabedilan Wetan</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <div id="mapid"></div>
