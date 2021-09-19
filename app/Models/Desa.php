@@ -5,12 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class coordinate extends Model
+class Desa extends Model
 {
     use HasFactory;
+    protected $table = 'desa';
 
-    public function desa()
+    public function coordinate()
     {
-        return $this->hasOne("App\Models\Desa");
+        return $this->belongsTo("App\Models\Coordinate");
     }
 }

@@ -72,14 +72,20 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="{{ Url('/admin/desa') }}">
                                     <i class="fa fa-globe"></i>
                                     <span>Manage Desa</span>
                                 </a>
                             </li>
+                            <li>
+                                <a href="{{ Url('/admin/kecamatan') }}">
+                                    <i class="fa fa-globe"></i>
+                                    <span>Manage Kecamatan</span>
+                                </a>
+                            </li>
                             <li class="sidebar-dropdown">
                                 <a href="#">
-                                    <i class="fa fa-globe"></i>
+                                    <i class="fa fa-location-arrow"></i>
                                     <span>Setting Rute</span>
                                 </a>
                                 <div class="sidebar-submenu">

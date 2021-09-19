@@ -38,11 +38,6 @@
                         <td>{{ $item->longitude }}</td>
                         <td>{{ $item->vertex }}</td>
                         <td>
-                            <a class="btn btn-primary btn-sm" href="{{ route('coordinates.show', [$item->id]) }}">
-                                <i class="fas fa-folder">
-                                </i>
-                                View
-                            </a>
                             <a class="btn btn-success btn-sm" href="{{ route('coordinates.edit', [$item]) }}">
                                 <i class="fas fa-pencil-alt">
                                 </i>

@@ -23,4 +23,5 @@ Route::prefix('admin')->middleware(['middleware' => 'auth'])->group(function () 
     Route::resource('/users', App\Http\Controllers\UserController::class);
     Route::resource('/coordinates', App\Http\Controllers\CoordinateController::class);
     Route::resource('/graphs', App\Http\Controllers\GraphController::class);
+    Route::resource('/desa', App\Http\Controllers\DesaController::class);
 });
