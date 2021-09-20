@@ -25,37 +25,33 @@ class AppController extends Controller
         $S = $request->get('source');
 
         if (isset($S)) {
-            try {
-                $V = 5; // Jumlah vertex dalam graph
-                $E = 8; // Jumlah edge dalam graph
+            $V = 5; // Jumlah vertex dalam graph
+            $E = 8; // Jumlah edge dalam graph
 
-                // Every edge has three values (u, v, w) where
-                // the edge is from vertex u to v. And weight
-                // of the edge is w.
-                // $graph = array(
-                //     array(0, 1, -1), array(0, 2, 4),
-                //     array(1, 2, 3), array(1, 3, 2),
-                //     array(1, 4, 2), array(3, 2, 5),
-                //     array(3, 1, 1), array(4, 3, -3)
-                // );
+            // Every edge has three values (u, v, w) where
+            // the edge is from vertex u to v. And weight
+            // of the edge is w.
+            // $graph = array(
+            //     array(0, 1, -1), array(0, 2, 4),
+            //     array(1, 2, 3), array(1, 3, 2),
+            //     array(1, 4, 2), array(3, 2, 5),
+            //     array(3, 1, 1), array(4, 3, -3)
+            // );
 
-                $graphs = Graph::select('source', 'destination', 'weight')->get()->toArray();
-                $results = $this->BellmanFord($graphs, $V, $E, $S);
+            $graphs = Graph::select('source', 'destination', 'weight')->get()->toArray();
+            $results = $this->BellmanFord($graphs, $V, $E, $S);
 
-                // This code is contributed by AnkitRai01
+            // This code is contributed by AnkitRai01
 
-                $vs = Graph::select('source')->distinct()->pluck('source')->toArray();
-                $vd = Graph::select('destination')->distinct()->pluck('destination')->toArray();
-                $vm = array_merge($vs, $vd);
-                $vu = array_unique($vm);
+            $vs = Graph::select('source')->distinct()->pluck('source')->toArray();
+            $vd = Graph::select('destination')->distinct()->pluck('destination')->toArray();
+            $vm = array_merge($vs, $vd);
+            $vu = array_unique($vm);
 
-                $source = Coordinate::select('id', 'name', 'latitude', 'longitude', 'vertex')->where('vertex', $S)->first();
-                $vertex = Coordinate::select('id', 'name', 'latitude', 'longitude', 'vertex')->whereIn('vertex', $vu)->orderBy('vertex', 'ASC')->get();
+            $source = Coordinate::select('id', 'name', 'latitude', 'longitude', 'vertex')->where('vertex', $S)->first();
+            $vertex = Coordinate::select('id', 'name', 'latitude', 'longitude', 'vertex')->whereIn('vertex', $vu)->orderBy('vertex', 'ASC')->get();
 
-                return view('distance', compact('graphs', 'results', 'V', 'S', 'source', 'vertex'));
-            } catch (\Throwable $th) {
-                return back();
-            }
+            return view('distance', compact('graphs', 'results', 'V', 'S', 'source', 'vertex'));
         } else {
             return view('distance');
         }
