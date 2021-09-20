@@ -25,7 +25,7 @@
 
     <div id="sidebar">
         <div class="bg-success p-2 text-white">
-            <h1>Profil</h1>
+            <h1 id="title">Profil</h1>
         </div>
         <div class="p-3">
             <table class="table table-borderless table-responsive">
@@ -209,13 +209,46 @@
 
     @foreach ($desa as $item)
         <script>
-            var marker = L.marker([{!! $item->latitude !!}, {!! $item->longitude !!}]).addTo(mymap);
-            marker.bindTooltip('{!! $item->name !!}', {
+            var marker = L.marker([{!! $item->coordinate->latitude !!}, {!! $item->coordinate->longitude !!}]).addTo(mymap);
+            marker.bindTooltip('{!! $item->nama !!}', {
                 permanent: false,
             }).on('click', markerOnClick);
 
             function markerOnClick(e) {
-                sidebar.toggle();
+                $.ajax({
+                    url: "/desa/" + {{ $item->id }},
+                    success: function(data) {
+                        $('#title').text(data.nama);
+                    },
+                    error: function() {
+                        console.log("There was an error.");
+                    }
+                });
+
+                sidebar.show();
+            }
+        </script>
+    @endforeach
+
+    @foreach ($kecamatan as $item)
+        <script>
+            var marker = L.marker([{!! $item->coordinate->latitude !!}, {!! $item->coordinate->longitude !!}]).addTo(mymap);
+            marker.bindTooltip('{!! $item->nama !!}', {
+                permanent: false,
+            }).on('click', markerOnClick);
+
+            function markerOnClick(e) {
+                $.ajax({
+                    url: "/kecamatan/" + {{ $item->id }},
+                    success: function(data) {
+                        $('#title').text(data.nama);
+                    },
+                    error: function() {
+                        console.log("There was an error.");
+                    }
+                });
+
+                sidebar.show();
             }
         </script>
     @endforeach

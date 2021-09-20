@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [App\Http\Controllers\AppController::class, 'index']);
 Route::get('/distances', [App\Http\Controllers\AppController::class, 'distances']);
+Route::get('/desa/{id}', [App\Http\Controllers\DesaController::class, 'detail']);
+Route::get('/kecamatan/{id}', [App\Http\Controllers\KecamatanController::class, 'detail']);
 
 Auth::routes(['register'=>false]);
 
@@ -24,4 +26,5 @@ Route::prefix('admin')->middleware(['middleware' => 'auth'])->group(function () 
     Route::resource('/coordinates', App\Http\Controllers\CoordinateController::class);
     Route::resource('/graphs', App\Http\Controllers\GraphController::class);
     Route::resource('/desa', App\Http\Controllers\DesaController::class);
+    Route::resource('/kecamatan', App\Http\Controllers\KecamatanController::class);
 });

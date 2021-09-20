@@ -40,7 +40,7 @@ class DesaController extends Controller
     {
         $request->validate([
             'nama' => 'required|string|min:3',
-            'kordinat' => 'required|unique:desa',
+            'coordinate_id' => 'required|unique:desa',
         ],);
 
         $desa = new Desa;
@@ -51,7 +51,7 @@ class DesaController extends Controller
         $desa->provinsi = $request->get('provinsi');
         $desa->kode_wilayah = $request->get('kode_wilayah');
         $desa->kode_pos = $request->get('kode_pos');
-        $desa->coordinate_id = $request->get('kordinat');
+        $desa->coordinate_id = $request->get('coordinate_id');
         $desa->save();
 
         return redirect()->route('desa.index')->with('success', 'Desa Berhasil di Tambahkan!');
@@ -92,7 +92,7 @@ class DesaController extends Controller
     {
         $request->validate([
             'nama' => 'required|string|min:3',
-            'kordinat' => 'required|unique:desa',
+            'coordinate_id' => 'required|unique:desa',
         ],);
 
         $desa = Desa::findOrFail($desa->id);
@@ -103,7 +103,7 @@ class DesaController extends Controller
         $desa->provinsi = $request->get('provinsi');
         $desa->kode_wilayah = $request->get('kode_wilayah');
         $desa->kode_pos = $request->get('kode_pos');
-        $desa->coordinate_id = $request->get('kordinat');
+        $desa->coordinate_id = $request->get('coordinate_id');
         $desa->save();
 
         return redirect()->route('desa.index')->with('success', 'Desa Berhasil di Edit!');
@@ -120,5 +120,11 @@ class DesaController extends Controller
         $desa = Desa::findOrFail($desa->id);
         $desa->delete();
         return redirect()->route('desa.index')->with('success', 'Desa Berhasil di Hapus!');
+    }
+
+    public function detail($id)
+    {
+        $desa = Desa::findOrFail($id);
+        return $desa;
     }
 }

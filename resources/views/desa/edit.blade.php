@@ -59,16 +59,17 @@
 
                     <div class="form-group">
                         <label for="asal">Titik Kordinat Kantor Kepala Desa</label>
-                        <select class="form-control" name="kordinat" id="kordinat">
+                        <select class="form-control" name="coordinate_id" id="coordinate_id">
                             <option selected="true" disabled="disabled">Pilih Kordinat</option>
                             @foreach ($coordinates as $item)
                                 <option value="{{ $item->id }}" {{ $desa->coordinate_id == $item->id ? 'selected' : '' }}>{{ $item->name }}</option>
                             @endforeach
                         </select>
-                        @error('kordinat')
+                        @error('coordinate_id')
                             <small class="form-text text-danger">{{ $message }}</small>
                         @enderror
                     </div>
+                    
                     <button type="submit" class="btn btn-primary">Simpan</button>
                     <a href="{{ route('desa.index') }}" class="btn btn-danger">Batal</a>
                 </form>

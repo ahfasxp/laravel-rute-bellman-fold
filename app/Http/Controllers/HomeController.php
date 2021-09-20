@@ -23,6 +23,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $users = \App\Models\User::count();
+        $desa = \App\Models\Desa::count();
+        $kecamatan = \App\Models\Kecamatan::count();
+        $kordinat = \App\Models\Coordinate::count();
+        $graphs = \App\Models\Graph::count();
+        return view('home', compact('users', 'desa', 'kecamatan', 'kordinat', 'graphs'));
     }
 }

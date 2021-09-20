@@ -13,4 +13,9 @@ class coordinate extends Model
     {
         return $this->hasOne("App\Models\Desa");
     }
+
+    public function kecamatan()
+    {
+        return $this->hasOne("App\Models\Kecamatan");
+    }
 }

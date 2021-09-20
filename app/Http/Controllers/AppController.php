@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 
+use App\Models\Desa;
+use App\Models\Kecamatan;
 use App\Models\Coordinate;
 use App\Models\Graph;
 use Illuminate\Http\Request;
@@ -12,41 +14,47 @@ class AppController extends Controller
 {
     public function index()
     {
-        $desa = Coordinate::all();
-        return view('index', compact('desa'));
+        $desa = Desa::all();
+        $kecamatan = Kecamatan::all();
+        return view('index', compact('desa', 'kecamatan'));
     }
 
-    public function distances()
+    public function distances(Request $request)
     {
         // Driver Code
-        $V = 5; // Jumlah vertex dalam graph
-        $E = 8; // Jumlah edge dalam graph
-        $S = 0;
+        $S = $request->get('source');
 
-        // Every edge has three values (u, v, w) where
-        // the edge is from vertex u to v. And weight
-        // of the edge is w.
-        // $graph = array(
-        //     array(0, 1, -1), array(0, 2, 4),
-        //     array(1, 2, 3), array(1, 3, 2),
-        //     array(1, 4, 2), array(3, 2, 5),
-        //     array(3, 1, 1), array(4, 3, -3)
-        // );
+        if (isset($S)) {
+            $V = 5; // Jumlah vertex dalam graph
+            $E = 8; // Jumlah edge dalam graph
 
-        $graphs = Graph::select('source', 'destination', 'weight')->get()->toArray();
-        $results = $this->BellmanFord($graphs, $V, $E, $S);
+            // Every edge has three values (u, v, w) where
+            // the edge is from vertex u to v. And weight
+            // of the edge is w.
+            // $graph = array(
+            //     array(0, 1, -1), array(0, 2, 4),
+            //     array(1, 2, 3), array(1, 3, 2),
+            //     array(1, 4, 2), array(3, 2, 5),
+            //     array(3, 1, 1), array(4, 3, -3)
+            // );
 
-        // This code is contributed by AnkitRai01
+            $graphs = Graph::select('source', 'destination', 'weight')->get()->toArray();
+            $results = $this->BellmanFord($graphs, $V, $E, $S);
 
-        $vs = Graph::select('source')->distinct()->pluck('source')->toArray();
-        $vd = Graph::select('destination')->distinct()->pluck('destination')->toArray();
-        $vm = array_merge($vs, $vd);
-        $vu = array_unique($vm);
+            // This code is contributed by AnkitRai01
 
-        $source = Coordinate::select('id', 'name', 'latitude', 'longitude', 'vertex')->where('vertex', $S)->first();
-        $vertex = Coordinate::select('id', 'name', 'latitude', 'longitude', 'vertex')->whereIn('vertex', $vu)->orderBy('vertex', 'ASC')->get();
+            $vs = Graph::select('source')->distinct()->pluck('source')->toArray();
+            $vd = Graph::select('destination')->distinct()->pluck('destination')->toArray();
+            $vm = array_merge($vs, $vd);
+            $vu = array_unique($vm);
 
-        return view('distance', compact('graphs', 'results', 'V', 'S', 'source', 'vertex'));
+            $source = Coordinate::select('id', 'name', 'latitude', 'longitude', 'vertex')->where('vertex', $S)->first();
+            $vertex = Coordinate::select('id', 'name', 'latitude', 'longitude', 'vertex')->whereIn('vertex', $vu)->orderBy('vertex', 'ASC')->get();
+
+            return view('distance', compact('graphs', 'results', 'V', 'S', 'source', 'vertex'));
+        } else {
+            return view('distance');
+        }
     }
 
     // A PHP program for Bellman-Ford's single

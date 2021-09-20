@@ -14,99 +14,101 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                <form action="" method="get">
+                <form action="{{ url('/distances') }}" method="get">
                     <div class="form-group">
                         <label for="">Pilih Lokasi Awal (Source)</label>
                         <select class="form-control" name="source" id="source">
                             <option selected="true" disabled="disabled">Pilih Lokasi Awal</option>
-                            <option value="0">Kantor Kecamatan Pabedilan</option>
+                            <option value="0" {{ isset($S) ? 'selected' : '' }}>Kantor Kecamatan Pabedilan</option>
                         </select>
                     </div>
-                    <button type="button" name="" id="" class="btn btn-primary btn-block">Uji Algoritma Bellman-Fold</button>
+                    <button type="submit" class="btn btn-primary btn-block">Uji Algoritma Bellman-Fold</button>
                 </form>
             </div>
         </div>
         <br>
         <br>
-        <hr>
-        <h2>Hasil Pengujian Pencarian Rute Terpendek Algoritma Bellman-Fold</h2>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Source</th>
-                    <td>{{ $S }}</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th>Vertex</th>
-                    @for ($i = 0; $i < $V; $i++)
-                        <td>{{ $i }}</td>
-                    @endfor
-                </tr>
-                <tr>
-                    <th>Distance from Source</th>
-                    @foreach ($results as $item)
-                        <td>{{ $item }}</td>
-                    @endforeach
-                </tr>
-            </tbody>
-        </table>
-        <br>
-        <br>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Source</th>
-                    <td>{{ $source->name }}</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th>Vertex</th>
-                    @foreach ($vertex as $item)
-                        <td>{{ $item->name }}</td>
-                    @endforeach
-                </tr>
-                <tr>
-                    <th>Distance from Source</th>
-                    @foreach ($results as $item)
-                        <td>{{ $item }}</td>
-                    @endforeach
-                </tr>
-            </tbody>
-        </table>
-        <br>
-        <br>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Lokasi Awal</th>
-                    <th>Lokasi Tujuan</th>
-                    <th>Jarak</th>
-                    <th>Rute</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($vertex as $vertex)
+        @if (isset($results))
+            <hr>
+            <h2>Hasil Pengujian Pencarian Rute Terpendek Algoritma Bellman-Fold</h2>
+            <table class="table table-bordered">
+                <thead>
                     <tr>
-                        <td>{{ $source->name }}</td>
-                        <td>{{ $vertex->name }}</td>
-                        <td>{{ $results[$loop->index] }}</td>
-                        <td>
-                            <button type="button" data-source="{{ $source }}" data-destination="{{ $vertex }}"
-                                class="btn btn-primary view">
-                                Lihat
-                            </button>
-                        </td>
+                        <th>Source</th>
+                        <td>{{ $S }}</td>
                     </tr>
-                @endforeach
-            </tbody>
-        </table>
-        <br>
-        <br>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>Vertex</th>
+                        @for ($i = 0; $i < $V; $i++)
+                            <td>{{ $i }}</td>
+                        @endfor
+                    </tr>
+                    <tr>
+                        <th>Distance from Source</th>
+                        @foreach ($results as $item)
+                            <td>{{ $item }}</td>
+                        @endforeach
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <br>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Source</th>
+                        <td>{{ $source->name }}</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>Vertex</th>
+                        @foreach ($vertex as $item)
+                            <td>{{ $item->name }}</td>
+                        @endforeach
+                    </tr>
+                    <tr>
+                        <th>Distance from Source</th>
+                        @foreach ($results as $item)
+                            <td>{{ $item }}</td>
+                        @endforeach
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <br>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Lokasi Awal</th>
+                        <th>Lokasi Tujuan</th>
+                        <th>Jarak</th>
+                        <th>Rute</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($vertex as $vertex)
+                        <tr>
+                            <td>{{ $source->name }}</td>
+                            <td>{{ $vertex->name }}</td>
+                            <td>{{ $results[$loop->index] }}</td>
+                            <td>
+                                <button type="button" data-source="{{ $source }}"
+                                    data-destination="{{ $vertex }}" class="btn btn-primary view">
+                                    Lihat
+                                </button>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+            <br>
+            <br>
     </div>
     <div id="mapid"></div>
+    @endif
 @endsection
 
 @section('script')
