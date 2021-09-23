@@ -33,142 +33,57 @@
                     <tr>
                         <th>Nama</th>
                         <th>:</th>
-                        <th>Pabedilan Wetan</th>
-                    </tr>
-                    <tr>
-                        <th>Tahun Pembentukan</th>
-                        <th>:</th>
-                        <th>Pabedilan Wetan</th>
-                    </tr>
-                    <tr>
-                        <th>Dasar Hukum Pembentukan</th>
-                        <th>:</th>
-                        <th>Pabedilan Wetan</th>
-                    </tr>
-                    <tr>
-                        <th>Nomor Kode Wilayah</th>
-                        <th>:</th>
-                        <th>Pabedilan Wetan</th>
-                    </tr>
-                    <tr>
-                        <th>Nomor Kode Pos</th>
-                        <th>:</th>
-                        <th>Pabedilan Wetan</th>
+                        <th id="nama"></th>
                     </tr>
                     <tr>
                         <th>Kecamatan</th>
                         <th>:</th>
-                        <th>Pabedilan Wetan</th>
+                        <th id="kecamatan"></th>
                     </tr>
                     <tr>
                         <th>Kabupaten / Kota</th>
                         <th>:</th>
-                        <th>Pabedilan Wetan</th>
+                        <th id="kabupaten"></th>
                     </tr>
                     <tr>
                         <th>Provinsi</th>
                         <th>:</th>
-                        <th>Pabedilan Wetan</th>
-                    </tr>
-                </tbody>
-            </table>
-            <h3>Data Umum</h3>
-            <table class="table table-borderless table-responsive">
-                <tbody>
-                    <tr>
-                        <th>Tipologi</th>
-                        <th>:</th>
-                        <th>Pabedilan Wetan</th>
+                        <th id="provinsi"></th>
                     </tr>
                     <tr>
-                        <th>Tingkat Perkembangan</th>
+                        <th>Kode Wilayah</th>
                         <th>:</th>
-                        <th>Pabedilan Wetan</th>
+                        <th id="kode-wilayah"></th>
+                    </tr>
+                    <tr>
+                        <th>Kode Pos</th>
+                        <th>:</th>
+                        <th id="kode-pos"></th>
+                    </tr>
+                    <tr>
+                        <th>Ketinggian</th>
+                        <th>:</th>
+                        <th id="ketinggian"></th>
                     </tr>
                     <tr>
                         <th>Luas Wilayah</th>
                         <th>:</th>
-                        <th>Pabedilan Wetan</th>
+                        <th id="luas-wilayah"></th>
                     </tr>
                     <tr>
                         <th>Jumlah Penduduk</th>
-                        <th></th>
-                        <th></th>
+                        <th>:</th>
+                        <th id="jml-penduduk"></th>
                     </tr>
                     <tr>
                         <td>a. Laki - Laki</td>
                         <td>:</td>
-                        <td>Pabedilan Wetan</td>
+                        <td id="jml-lk"></td>
                     </tr>
                     <tr>
                         <td>b. Perempuan</td>
                         <td>:</td>
-                        <td>Pabedilan Wetan</td>
-                    </tr>
-                    <tr>
-                        <th>Mayoritas Pekerjaan</th>
-                        <th>:</th>
-                        <th>Pabedilan Wetan</th>
-                    </tr>
-                    <tr>
-                        <th>Tingkat Pendidikan Masyarakat</th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                    <tr>
-                        <th>a. Lulusan Pendidikan Umum</th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                    <tr>
-                        <td>1. Taman Kanak - kanak</td>
-                        <td>:</td>
-                        <td>Pabedilan Wetan</td>
-                    </tr>
-                    <tr>
-                        <td>2. Sekolah Dasar</td>
-                        <td>:</td>
-                        <td>Pabedilan Wetan</td>
-                    </tr>
-                    <tr>
-                        <td>3. SMP</td>
-                        <td>:</td>
-                        <td>Pabedilan Wetan</td>
-                    </tr>
-                    <tr>
-                        <td>4. SMA / SMU</td>
-                        <td>:</td>
-                        <td>Pabedilan Wetan</td>
-                    </tr>
-                    <tr>
-                        <td>5. Akademi / D1 - D3</td>
-                        <td>:</td>
-                        <td>Pabedilan Wetan</td>
-                    </tr>
-                    <tr>
-                        <td>6. Sarjana</td>
-                        <td>:</td>
-                        <td>Pabedilan Wetan</td>
-                    </tr>
-                    <tr>
-                        <td>7. Pascasarjana</td>
-                        <td>:</td>
-                        <td>Pabedilan Wetan</td>
-                    </tr>
-                    <tr>
-                        <th>a. Lulusan Pendidikan Khusus</th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                    <tr>
-                        <td>1. Pondok Pesantren</td>
-                        <td>:</td>
-                        <td>Pabedilan Wetan</td>
-                    </tr>
-                    <tr>
-                        <td>2. Pendidikan Keagamaan</td>
-                        <td>:</td>
-                        <td>Pabedilan Wetan</td>
+                        <td id="jml-pr"></td>
                     </tr>
                 </tbody>
             </table>
@@ -219,6 +134,17 @@
                     url: "/desa/" + {{ $item->id }},
                     success: function(data) {
                         $('#title').text(data.nama);
+                        $('#nama').text(data.nama);
+                        $('#kecamatan').text(data.kecamatan);
+                        $('#kabupaten').text(data.kabupaten);
+                        $('#provinsi').text(data.provinsi);
+                        $('#kode-wilayah').text(data.kode_wilayah);
+                        $('#kode-pos').text(data.kode_pos);
+                        $('#ketinggian').text(data.ketinggian);
+                        $('#luas-wilayah').text(data.luas_wilayah);
+                        $('#jml-penduduk').text(data.jumlah_penduduk);
+                        $('#jml-lk').text(data.jml_laki_laki);
+                        $('#jml-pr').text(data.jml_perempuan);
                     },
                     error: function() {
                         console.log("There was an error.");

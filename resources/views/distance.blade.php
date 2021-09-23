@@ -55,7 +55,7 @@
             </table>
             <br>
             <br>
-            <table class="table table-bordered">
+            {{-- <table class="table table-bordered">
                 <thead>
                     <tr>
                         <th>Source</th>
@@ -76,7 +76,7 @@
                         @endforeach
                     </tr>
                 </tbody>
-            </table>
+            </table> --}}
             <br>
             <br>
             <table class="table table-bordered">

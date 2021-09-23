@@ -25,8 +25,8 @@ class AppController extends Controller
         $S = $request->get('source');
 
         if (isset($S)) {
-            $V = 5; // Jumlah vertex dalam graph
-            $E = 8; // Jumlah edge dalam graph
+            $V = Coordinate::count();; // Jumlah vertex dalam graph
+            $E = Graph::count(); // Jumlah edge dalam graph
 
             // Every edge has three values (u, v, w) where
             // the edge is from vertex u to v. And weight

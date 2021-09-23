@@ -51,6 +51,11 @@ class DesaController extends Controller
         $desa->provinsi = $request->get('provinsi');
         $desa->kode_wilayah = $request->get('kode_wilayah');
         $desa->kode_pos = $request->get('kode_pos');
+        $desa->ketinggian = $request->get('ketinggian');
+        $desa->luas_wilayah = $request->get('luas_wilayah');
+        $desa->jumlah_penduduk = $request->get('jml_penduduk');
+        $desa->jml_laki_laki = $request->get('jml_lk');
+        $desa->jml_perempuan = $request->get('jml_pr');
         $desa->coordinate_id = $request->get('coordinate_id');
         $desa->save();
 
@@ -92,7 +97,7 @@ class DesaController extends Controller
     {
         $request->validate([
             'nama' => 'required|string|min:3',
-            'coordinate_id' => 'required|unique:desa',
+            'coordinate_id' => 'required|unique:desa,coordinate_id,'.$desa->id,
         ],);
 
         $desa = Desa::findOrFail($desa->id);
@@ -103,9 +108,13 @@ class DesaController extends Controller
         $desa->provinsi = $request->get('provinsi');
         $desa->kode_wilayah = $request->get('kode_wilayah');
         $desa->kode_pos = $request->get('kode_pos');
+        $desa->ketinggian = $request->get('ketinggian');
+        $desa->luas_wilayah = $request->get('luas_wilayah');
+        $desa->jumlah_penduduk = $request->get('jml_penduduk');
+        $desa->jml_laki_laki = $request->get('jml_lk');
+        $desa->jml_perempuan = $request->get('jml_pr');
         $desa->coordinate_id = $request->get('coordinate_id');
         $desa->save();
-
         return redirect()->route('desa.index')->with('success', 'Desa Berhasil di Edit!');
     }
 
