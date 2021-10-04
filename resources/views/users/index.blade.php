@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="row mb-3">
             <div class="col-sm-12 col-md-10">
-                <h1>Manage Admin</h1>
+                <h1>Data Admin</h1>
             </div>
             <div class="col-sm-12 col-md-2">
                 <a href="{{ route('users.create') }}">

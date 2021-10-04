@@ -68,19 +68,19 @@
                             <li>
                                 <a href="{{ Url('/admin/users') }}">
                                     <i class="fa fa-users"></i>
-                                    <span>Manage Admin</span>
+                                    <span>Data Admin</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ Url('/admin/desa') }}">
                                     <i class="fa fa-globe"></i>
-                                    <span>Manage Desa</span>
+                                    <span>Data Desa</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ Url('/admin/kecamatan') }}">
                                     <i class="fa fa-globe"></i>
-                                    <span>Manage Kecamatan</span>
+                                    <span>Data Kecamatan</span>
                                 </a>
                             </li>
                             <li class="sidebar-dropdown">

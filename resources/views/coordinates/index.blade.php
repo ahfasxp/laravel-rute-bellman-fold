@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="row mb-3">
             <div class="col-sm-12 col-md-10">
-                <h1>Nilai Kordinat</h1>
+                <h1>Nilai Koordinat</h1>
             </div>
             <div class="col-sm-12 col-md-2">
                 <a href="{{ route('coordinates.create') }}">
