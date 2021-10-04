@@ -91,7 +91,7 @@
                                 <div class="sidebar-submenu">
                                     <ul>
                                         <li>
-                                            <a href="{{ Url('/admin/coordinates') }}">Nilai Kordinat</a>
+                                            <a href="{{ Url('/admin/coordinates') }}">Nilai Koordinat</a>
                                         </li>
                                         <li>
                                             <a href="{{ Url('/admin/graphs') }}">Nilai Graph</a>

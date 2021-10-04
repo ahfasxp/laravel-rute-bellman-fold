@@ -23,7 +23,6 @@
                     <th>Kecamatan</th>
                     <th>Kabupaten</th>
                     <th>Provinsi</th>
-                    <th>Kode Wilayah</th>
                     <th>Kode Pos</th>
                     <th>Aksi</th>
                 </tr>
@@ -39,13 +38,13 @@
                         <td>{{ $item->kecamatan }}</td>
                         <td>{{ $item->kabupaten }}</td>
                         <td>{{ $item->provinsi }}</td>
-                        <td>{{ $item->kode_wilayah }}</td>
                         <td>{{ $item->kode_pos }}</td>
                         <td>
-                            <a class="btn btn-primary btn-sm mb-1" href="{{ route('desa.show', [$item->id]) }}">
+                            <a class="btn btn-primary btn-sm mb-1" data-toggle="modal"
+                                data-target="#desa{{ $item->id }}">
                                 <i class="fas fa-folder">
                                 </i>
-                                View
+                                Lihat
                             </a>
                             <a class="btn btn-success btn-sm mb-1" href="{{ route('desa.edit', [$item]) }}">
                                 <i class="fas fa-pencil-alt">
@@ -62,6 +61,37 @@
                             </form>
                         </td>
                     </tr>
+                    <!-- Modal -->
+                    <div class="modal fade" id="desa{{ $item->id }}" role="dialog"
+                        aria-labelledby="modal-kecamatan" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Lihat Detail</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <ul class="list-group">
+                                        <li class="list-group-item">Nama : {{ $item->nama }}</li>
+                                        <li class="list-group-item">Kecamatan : {{ $item->kecamatan }}</li>
+                                        <li class="list-group-item">Kabupaten : {{ $item->kabupaten }}</li>
+                                        <li class="list-group-item">Provinsi : {{ $item->provinsi }}</li>
+                                        <li class="list-group-item">Kode Pos : {{ $item->kode_pos }}</li>
+                                        <li class="list-group-item">Ketinggian : {{ $item->ketinggian }}</li>
+                                        <li class="list-group-item">Luas Wilayah : {{ $item->luas_wilayah }}</li>
+                                        <li class="list-group-item">Jumlah Penduduk : {{ $item->jumlah_penduduk }}</li>
+                                        <li class="list-group-item">Jumlah Laki - laki : {{ $item->jml_laki_laki }}</li>
+                                        <li class="list-group-item">Jumlah perempuan : {{ $item->jml_perempuan }}</li>
+                                    </ul>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 @empty
                     <tr>
                         <td colspan="9" class="text-center">Tidak Ada Data Desa</td>

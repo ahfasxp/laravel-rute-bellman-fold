@@ -40,7 +40,7 @@
                 <div class="card text-center">
                     <div class="card-body">
                         <h2>{{ $kordinat }}</h2>
-                        <h5 class="card-title">Kordinat</h5>
+                        <h5 class="card-title">Koordinat</h5>
                         <a href="{{ url('/admin/coordinates') }}" class="btn btn-outline-primary btn-sm btn-block">Lihat</a>
                     </div>
                 </div>

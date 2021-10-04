@@ -46,6 +46,14 @@ class KecamatanController extends Controller
         $kecamatan = new Kecamatan;
 
         $kecamatan->nama = $request->get('nama');
+        $kecamatan->kabupaten = $request->get('kabupaten');
+        $kecamatan->provinsi = $request->get('provinsi');
+        $kecamatan->kode_pos = $request->get('kode_pos');
+        $kecamatan->ketinggian = $request->get('ketinggian');
+        $kecamatan->luas_wilayah = $request->get('luas_wilayah');
+        $kecamatan->jumlah_penduduk = $request->get('jml_penduduk');
+        $kecamatan->jml_laki_laki = $request->get('jml_lk');
+        $kecamatan->jml_perempuan = $request->get('jml_pr');
         $kecamatan->coordinate_id = $request->get('coordinate_id');
         $kecamatan->save();
 
@@ -87,12 +95,20 @@ class KecamatanController extends Controller
     {
         $request->validate([
             'nama' => 'required|string|min:3',
-            'coordinate_id' => 'required|unique:kecamatan',
+            'coordinate_id' => 'required|unique:kecamatan,coordinate_id,'.$kecamatan->id,
         ],);
 
         $kecamatan = Kecamatan::findOrFail($kecamatan->id);
 
         $kecamatan->nama = $request->get('nama');
+        $kecamatan->kabupaten = $request->get('kabupaten');
+        $kecamatan->provinsi = $request->get('provinsi');
+        $kecamatan->kode_pos = $request->get('kode_pos');
+        $kecamatan->ketinggian = $request->get('ketinggian');
+        $kecamatan->luas_wilayah = $request->get('luas_wilayah');
+        $kecamatan->jumlah_penduduk = $request->get('jml_penduduk');
+        $kecamatan->jml_laki_laki = $request->get('jml_lk');
+        $kecamatan->jml_perempuan = $request->get('jml_pr');
         $kecamatan->coordinate_id = $request->get('coordinate_id');
         $kecamatan->save();
 

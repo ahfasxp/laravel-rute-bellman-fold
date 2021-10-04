@@ -89,6 +89,13 @@
                                 </div>
                             </li>
                         </ul>
+                    @else
+                        <!-- Right Side Of Navbar -->
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link px-md-4" href="{{ url('/login') }}">Login</a>
+                            </li>
+                        </ul>
                     @endif
                 </div>
             </div>

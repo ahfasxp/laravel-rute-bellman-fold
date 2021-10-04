@@ -168,6 +168,17 @@
                     url: "/kecamatan/" + {{ $item->id }},
                     success: function(data) {
                         $('#title').text(data.nama);
+                        $('#nama').text(data.nama);
+                        $('#kecamatan').text(data.kecamatan);
+                        $('#kabupaten').text(data.kabupaten);
+                        $('#provinsi').text(data.provinsi);
+                        $('#kode-wilayah').text(data.kode_wilayah);
+                        $('#kode-pos').text(data.kode_pos);
+                        $('#ketinggian').text(data.ketinggian);
+                        $('#luas-wilayah').text(data.luas_wilayah);
+                        $('#jml-penduduk').text(data.jumlah_penduduk);
+                        $('#jml-lk').text(data.jml_laki_laki);
+                        $('#jml-pr').text(data.jml_perempuan);
                     },
                     error: function() {
                         console.log("There was an error.");
