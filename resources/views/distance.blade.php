@@ -31,7 +31,7 @@
         @if (isset($results))
             <hr>
             <h2>Hasil Pengujian Pencarian Rute Terpendek Algoritma Bellman-Fold</h2>
-            <table class="table table-bordered">
+            <table class="table table-bordered table-sm">
                 <thead>
                     <tr>
                         <th>Source</th>
@@ -79,7 +79,7 @@
             </table> --}}
             <br>
             <br>
-            <table class="table table-bordered">
+            <table class="table table-bordered table-sm table-hover">
                 <thead>
                     <tr>
                         <th>Lokasi Awal</th>
@@ -96,7 +96,7 @@
                             <td>{{ $results[$loop->index] }}</td>
                             <td>
                                 <button type="button" data-source="{{ $source }}"
-                                    data-destination="{{ $vertex }}" class="btn btn-primary view">
+                                    data-destination="{{ $vertex }}" class="btn btn-primary btn-sm view">
                                     Lihat
                                 </button>
                             </td>
@@ -121,6 +121,8 @@
             scrollWheelZoom: false
         }).setView([-6.8623928, 108.7405994], 13);
 
+        var routingControl = null;
+
         L.tileLayer(
             'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
                 maxZoom: 18,
@@ -135,11 +137,18 @@
             let source = JSON.parse($(this).attr('data-source'));
             let destination = JSON.parse($(this).attr('data-destination'));
 
-            L.Routing.control({
-                waypoints: [
-                    L.latLng(source.latitude, source.longitude),
-                    L.latLng(destination.latitude, destination.longitude)
-                ],
+            addRoutingControl([
+                L.latLng(source.latitude, source.longitude),
+                L.latLng(destination.latitude, destination.longitude)
+            ]);
+        });
+
+        var addRoutingControl = function(waypoints) {
+            if (routingControl != null)
+                removeRoutingControl();
+
+            routingControl = L.Routing.control({
+                waypoints: waypoints,
                 createMarker: function(i, wp) {
                     return L.marker(wp.latLng, {
                         draggable: true,
@@ -151,8 +160,13 @@
                 geocoder: L.Control.Geocoder.nominatim(),
                 routeWhileDragging: false
             }).addTo(mymap);
+        };
 
-            // $(".leaflet-routing-alternatives-container").before("<div><p>${source.name}</p></div>");
-        });
+        var removeRoutingControl = function() {
+            if (routingControl != null) {
+                mymap.removeControl(routingControl);
+                routingControl = null;
+            }
+        };
     </script>
 @endsection
