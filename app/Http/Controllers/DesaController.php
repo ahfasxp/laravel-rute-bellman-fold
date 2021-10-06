@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\coordinate;
+use App\Models\Coordinate;
 use App\Models\Desa;
 use Illuminate\Http\Request;
 
@@ -26,7 +26,7 @@ class DesaController extends Controller
      */
     public function create()
     {
-        $coordinates = coordinate::all();
+        $coordinates = Coordinate::all();
         return view('desa.create', compact('coordinates'));
     }
 
@@ -82,7 +82,7 @@ class DesaController extends Controller
     public function edit(Desa $desa)
     {
         $desa = Desa::findOrFail($desa->id);
-        $coordinates = coordinate::all();
+        $coordinates = Coordinate::all();
         return view('desa.edit', compact('desa', 'coordinates'));
     }
 

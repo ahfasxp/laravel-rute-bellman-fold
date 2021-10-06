@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Coordinate;
 use App\Models\Kecamatan;
 use Illuminate\Http\Request;
-use App\Models\coordinate;
 
 class KecamatanController extends Controller
 {
@@ -26,7 +26,7 @@ class KecamatanController extends Controller
      */
     public function create()
     {
-        $coordinates = App\Models\coordinate::all();
+        $coordinates = Coordinate::all();
         return view('kecamatan.create', compact('coordinates'));
     }
 
@@ -80,7 +80,7 @@ class KecamatanController extends Controller
     public function edit(Kecamatan $kecamatan)
     {
         $kecamatan = Kecamatan::findOrFail($kecamatan->id);
-        $coordinates = coordinate::all();
+        $coordinates = Coordinate::all();
         return view('kecamatan.edit', compact('kecamatan', 'coordinates'));
     }
 
