@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\coordinate;
 use App\Models\Kecamatan;
 use Illuminate\Http\Request;
+use App\Models\coordinate;
 
 class KecamatanController extends Controller
 {
