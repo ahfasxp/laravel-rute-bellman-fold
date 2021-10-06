@@ -26,7 +26,7 @@ class KecamatanController extends Controller
      */
     public function create()
     {
-        $coordinates = coordinate::all();
+        $coordinates = App\Models\coordinate::all();
         return view('kecamatan.create', compact('coordinates'));
     }
 
