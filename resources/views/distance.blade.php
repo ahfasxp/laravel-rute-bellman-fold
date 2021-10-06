@@ -93,7 +93,7 @@
                         <tr>
                             <td>{{ $source->name }}</td>
                             <td>{{ $vertex->name }}</td>
-                            <td>{{ $results[$loop->index] }}</td>
+                            <td>{{ $results[$loop->index]/1000 }} km</td>
                             <td>
                                 <button type="button" data-source="{{ $source }}"
                                     data-destination="{{ $vertex }}" class="btn btn-primary btn-sm view">
