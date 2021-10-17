@@ -23,6 +23,7 @@ class AppController extends Controller
     {
         // Driver Code
         $S = $request->get('source');
+        $coordinates = Coordinate::orderBy('vertex', 'ASC')->get();
 
         if (isset($S)) {
             $V = Coordinate::count();; // Jumlah vertex dalam graph
@@ -51,9 +52,9 @@ class AppController extends Controller
             $source = Coordinate::select('id', 'name', 'latitude', 'longitude', 'vertex')->where('vertex', $S)->first();
             $vertex = Coordinate::select('id', 'name', 'latitude', 'longitude', 'vertex')->whereIn('vertex', $vu)->orderBy('vertex', 'ASC')->get();
 
-            return view('distance', compact('graphs', 'results', 'V', 'S', 'source', 'vertex'));
+            return view('distance', compact('graphs', 'results', 'V', 'S', 'source', 'vertex', 'coordinates'));
         } else {
-            return view('distance');
+            return view('distance', 'coordinates');
         }
     }
 
