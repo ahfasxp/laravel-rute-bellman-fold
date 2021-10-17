@@ -4,7 +4,7 @@
 
     <style>
         #mapid {
-            height: 100vh;
+            height: 80vh;
         }
 
         .leaflet-control {
