@@ -19,7 +19,9 @@
                         <label for="">Pilih Lokasi Awal (Source)</label>
                         <select class="form-control" name="source" id="source">
                             <option selected="true" disabled="disabled">Pilih Lokasi Awal</option>
-                            <option value="0" {{ isset($S) ? 'selected' : '' }}>Kantor Kecamatan Pabedilan</option>
+                            @foreach ($coordinates as $item)
+                                <option value="{{ $item->vertex }}">{{ $item->name }}</option>
+                            @endforeach
                         </select>
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">Uji Algoritma Bellman-Fold</button>
@@ -93,7 +95,7 @@
                         <tr>
                             <td>{{ $source->name }}</td>
                             <td>{{ $vertex->name }}</td>
-                            <td>{{ $results[$loop->index]/1000 }} km</td>
+                            <td>{{ $results[$loop->index] / 1000 }} km</td>
                             <td>
                                 <button type="button" data-source="{{ $source }}"
                                     data-destination="{{ $vertex }}" class="btn btn-primary btn-sm view">
